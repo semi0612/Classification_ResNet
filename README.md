@@ -1,7 +1,7 @@
 # classification_resnet
-시작 하기 전, 이 실험은 Tensorfloww Library API을 기반으로 Colab이 제공하는 GPU를 사용하였다. 실험 결과로 (Train, Validation)Accuracy, Loss, feature map, Grad CAM을 확인할 수 있다.
+이 실험은 Tensorfloww Library API을 기반으로 Colab이 제공하는 GPU를 사용하였습니다. 실험 결과로 (Train, Validation)Accuracy, Loss, feature map, Grad CAM을 확인할 수 있었습니다.
 
-#### - 데이터는 kaggle에서 제공하는 Cats-vs-Dogs 데이터를 이용하여 2만 5천장에서 1만 7천개를 train_data, 4천개를 validation_data, test_data 4000으로 나누어 실험을 진행하였음.
+#### - 데이터는 kaggle에서 제공하는 Cats-vs-Dogs 데이터를 이용, 2만 5천장 중 1만 7천장을 train_data, 4천 장을 validation_data, test_data 4000으로 나누어 실험을 진행.
 
 ### ResNet(Residual Networks)
 ResNet은 2015년 ILSVRC 대회에서 우승한 모델로써 신경망의 구조가 깊어짐에 따라 정확도가 저하되는 문제를 해결하기 위한 방법으로「잔류 학습」을 도입하였다. 간단히 말해, 기존 네트워크를 H(x)(x는 레이어의 입력) F(x) = H(x) - x 라고 하면 네트워크 F(x) + x가 대략 H(x)로 학습되도록 하는 것이다. 즉, 레이어의 입력과 출력 간의 차이를 학습 하고 저하되는 문제를 해결할 수 있었다. 이것은 왼쪽 아래에 있는 그림을 보면 확인할 수 있다. 오른쪽은 그림은 50개 이상 Layer에서 Bottleneck을 이용하는 구조로 건너 뛰는 것을 볼 수 있다. 이는 층이 깊어질수록 연산량이 늘어남에 따라 제안된 방법으로 채널 수가 1 x 1 Conv로 줄어드 다음 3 x 3 Conv를 거쳐 1 x 1 Conv를 다시 통과하여 채널 수를 다시 복구하는 것을 볼 수 있다.
